@@ -344,3 +344,29 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 6px 0; }
   .status-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .incoming li { flex-wrap: wrap; }
 }
+
+/* ---------- Orders ---------- */
+.toolbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.stack-xs { display: flex; flex-direction: column; gap: 4px; align-items: flex-start; }
+.price { color: var(--green-800); font-size: 1.05rem; }
+.board { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 16px; align-items: start; }
+.board-col { background: #eef3f0; border-radius: var(--radius); padding: 14px; display: flex; flex-direction: column; gap: 10px; min-height: 240px; border-top: 4px solid; }
+.board-col header { display: flex; align-items: center; justify-content: space-between; }
+.board-hint { font-size: 0.8rem; margin-top: -6px; }
+.col-blue { border-top-color: var(--blue); }
+.col-amber { border-top-color: #e09a2b; }
+.col-green { border-top-color: var(--green-500); }
+.board-empty { padding: 28px; text-align: center; color: var(--muted); border: 2px dashed #d6dfda; border-radius: 12px; font-weight: 600; }
+.ticket { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; box-shadow: var(--shadow); animation: rise 0.2s; }
+.ticket.is-flag { border-color: #f3b4b4; }
+.ticket-head { display: flex; justify-content: space-between; align-items: baseline; border: 0; background: none; padding: 0; cursor: pointer; font-size: 1.05rem; }
+.ticket-head .muted { font-size: 0.8rem; }
+.ticket-customer { font-weight: 700; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.ticket-items { list-style: none; margin: 0; padding: 8px 0; border-top: 1px dashed var(--line); border-bottom: 1px dashed var(--line); display: flex; flex-direction: column; gap: 3px; }
+.ticket-items .num { font-weight: 800; color: var(--green-800); display: inline-block; min-width: 24px; }
+.ticket-note { display: flex; gap: 6px; align-items: center; font-size: 0.82rem; font-weight: 700; color: var(--amber); background: var(--amber-bg); padding: 6px 8px; border-radius: 8px; }
+.due { font-size: 0.8rem; font-weight: 700; color: var(--ink-2); }
+.due-soon { color: var(--amber); }
+.due-late { color: var(--red); }
+.ticket-foot { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+@media (max-width: 1000px) { .board { grid-template-columns: 1fr; } }
