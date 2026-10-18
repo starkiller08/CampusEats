@@ -382,3 +382,60 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 6px 0; }
 .promo-kv { grid-template-columns: 60px 1fr; font-size: 0.85rem; margin: 4px 0 8px; }
 @media (max-width: 1100px) { .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 760px) { .grid-3 { grid-template-columns: 1fr; } }
+
+/* ---------- Analytics ---------- */
+.bar-chart { display: grid; grid-template-columns: 44px 1fr; column-gap: 8px; }
+.bar-axis { display: flex; flex-direction: column; justify-content: space-between; text-align: right; font-size: 0.72rem; color: var(--muted); transform: translateY(-0.5em); }
+.bar-axis span { line-height: 1; }
+.bar-plot { position: relative; border-bottom: 1px solid #cfd8d3; }
+.bar-grid { position: absolute; left: 0; right: 0; border-top: 1px solid #eef2f0; }
+.bar-cols { position: absolute; inset: 0; display: flex; align-items: flex-end; gap: 2px; }
+.bar-col { position: relative; flex: 1; height: 100%; display: flex; align-items: flex-end; justify-content: center; outline: none; cursor: default; }
+.bar-col:hover, .bar-col.is-hover { background: rgba(58, 168, 107, 0.06); border-radius: 6px 6px 0 0; }
+.bar { width: min(70%, 44px); min-height: 2px; background: var(--green-500); border-radius: 4px 4px 0 0; transition: height 0.3s; }
+.bar.is-muted { background: #dbe3df; }
+.bar.is-peak { background: var(--green-800); }
+.bar-col.is-hover .bar { filter: brightness(0.9); }
+.bar-tip { position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%); background: var(--ink); color: #fff; font-size: 0.78rem; font-weight: 700; padding: 6px 10px; border-radius: 8px; white-space: nowrap; z-index: 5; pointer-events: none; }
+.bar-col:first-child .bar-tip { left: 0; transform: none; }
+.bar-col:last-child .bar-tip { left: auto; right: 0; transform: none; }
+.bar-labels { display: flex; gap: 2px; margin-top: 6px; }
+.bar-labels span { flex: 1; text-align: center; font-size: 0.72rem; color: var(--muted); white-space: nowrap; overflow: visible; }
+.simple-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.simple-table th, .simple-table td { padding: 8px 10px; border-bottom: 1px solid var(--line); text-align: left; }
+.simple-table th { color: var(--muted); font-size: 0.8rem; }
+.top-items { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.top-items li { display: flex; align-items: center; gap: 12px; }
+.rank { width: 22px; font-weight: 800; color: var(--muted); text-align: center; }
+.item-thumb.sm { width: 40px; height: 40px; font-size: 1.3rem; border-radius: 10px; }
+.top-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.meter { height: 8px; border-radius: 4px; background: #eef2f0; overflow: hidden; }
+.meter span { display: block; height: 100%; background: var(--green-500); border-radius: 4px; }
+.stacked { display: flex; gap: 2px; height: 28px; border-radius: 8px; overflow: hidden; }
+.stacked span { height: 100%; }
+.legend { list-style: none; margin: 12px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 0.9rem; }
+.legend li { display: flex; align-items: center; gap: 6px; }
+.swatch { width: 12px; height: 12px; border-radius: 3px; }
+@media (max-width: 760px) { .bar-labels span { font-size: 0.62rem; } .bar-chart { grid-template-columns: 36px 1fr; } }
+
+/* ---------- Settings ---------- */
+.setting-row { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 12px 0; }
+.setting-row + .setting-row { border-top: 1px solid var(--line); }
+.setting-row p { font-size: 0.85rem; }
+.hours { display: flex; flex-direction: column; gap: 8px; }
+.hours-row { display: grid; grid-template-columns: 44px 52px 1fr; align-items: center; gap: 10px; min-height: 44px; }
+.hours-row .input { padding: 7px 8px; }
+
+/* Tables become stacked cards on phones */
+@media (max-width: 760px) {
+  .table thead { display: none; }
+  .table, .table tbody { display: block; }
+  .table tr { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; padding: 12px; margin-bottom: 10px; background: #fff; border: 1px solid var(--line); border-radius: 12px; }
+  .table tr.is-flag { background: #fffafa; }
+  .table td, .table td:first-child, .table td:last-child { display: block; padding: 0; border: 0; border-radius: 0; background: none; }
+  .table td:first-child { flex-basis: 100%; }
+  .table td:last-child { margin-left: auto; }
+  .item-cell { min-width: 0; }
+  .tag-list { max-width: none; }
+}
+@media (max-width: 760px) { .toolbar .search { flex: 1 1 100%; } }
